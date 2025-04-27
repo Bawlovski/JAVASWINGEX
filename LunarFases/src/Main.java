@@ -15,6 +15,7 @@ public class Main extends JFrame{
 		JPanel panel = new JPanel();
 		JPanel panel1 = new JPanel();
 		LunaPanel l = new LunaPanel();
+		Slider s =  new Slider(l);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		
@@ -24,12 +25,13 @@ public class Main extends JFrame{
 		add(l,BorderLayout.CENTER);
 		add(panel, BorderLayout.SOUTH);
 		panel.add(panel1,BorderLayout.NORTH);
-		panel1.add(new BotonL(l), new FlowLayout(FlowLayout.RIGHT));
-		panel1.add(new BotonR(l), new FlowLayout(FlowLayout.RIGHT));
+		panel1.add(s);
 		panel.setBackground(Color.black);
 		panel1.setBackground(Color.black);
+		
 		setAlwaysOnTop(true);
 		setResizable(false);
+		
 		pack();
 		setSize(new Dimension(400,400));
 	}

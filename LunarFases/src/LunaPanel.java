@@ -68,6 +68,11 @@ public class LunaPanel extends JButton implements ActionListener{
 		
 	}
 	
+	public void setLuna(int n) {
+		this.setIcon(LUNAS[n].getIMG());
+		this.setText(LUNAS[n].getFase());
+	}
+	
 	public Luna getLuna(int n) {
 		return this.LUNAS[n];
 	}

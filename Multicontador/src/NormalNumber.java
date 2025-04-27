@@ -19,4 +19,6 @@ public class NormalNumber extends JLabel {
         
         setForeground(Color.white);
     }
+    
+    
 }

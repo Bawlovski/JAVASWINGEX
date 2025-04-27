@@ -9,8 +9,11 @@ import javax.swing.JLabel;
 public class NormalReset extends JButton{
 
 	private static final long serialVersionUID = 1L;
-
-	NormalReset (Color r) {
+	
+	NormalPanel p ;
+	
+	NormalReset (Color r, NormalPanel n) {
+		this.p = n;
 		setLayout(new BorderLayout());
 	    ImageIcon originalIcon = new ImageIcon(GlobalButton.class.getResource("/multicontador/reset.png"));
 	    Image originalImage = originalIcon.getImage();
@@ -35,6 +38,19 @@ public class NormalReset extends JButton{
 	    
 	    JLabel l1 = new JLabel(new ImageIcon(scaledImage));
 	    setBackground(r);
+	    
+	    addActionListener(e -> {
+            GlobalNumber globalNum = n.getGlobalnum();
+            int currentValue = n.getNumberAdd().getNumber();
+            
+            // Subtract this counter's value from global total
+            globalNum.setX(globalNum.getX() - currentValue);
+            globalNum.setText(String.valueOf(globalNum.getX()));
+            
+            // Reset local counter
+            n.getNumberAdd().resetNumber();
+            n.getNumber().setText("0");
+        });
 	    add(l1,BorderLayout.SOUTH);
 	}
 }

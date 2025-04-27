@@ -9,14 +9,42 @@ public class NormalPanel extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public NormalPanel(Color r) {
+
+	private GlobalNumber globalnum;
+	private NormalNumber number =  new NormalNumber();
+	private NormalAdd adder ;
+	
+	public NormalPanel(Color a,GlobalNumber x) {
+		this.globalnum = x;
+		NormalReset reset =  new NormalReset(a, this);
+		adder = new NormalAdd(a, this);
+		
 		
 		setLayout(new BorderLayout());
 		
-		setBackground(r);
+		setBackground(a);
 		
-		add(new NormalReset(r),BorderLayout.NORTH);
-		add(new NormalNumber(),BorderLayout.CENTER);
-		add(new NormalAdd(r),BorderLayout.SOUTH);
+		add(reset,BorderLayout.NORTH);
+		add(number,BorderLayout.CENTER);
+		add(adder,BorderLayout.SOUTH);
+		
 	}
+	
+	public NormalNumber getNumber() {
+		return number;
+	}
+	
+	public NormalAdd getNumberAdd() {
+		return adder;
+	}
+
+	public GlobalNumber getGlobalnum() {
+		return globalnum;
+	}
+
+	public void setGlobalnum(GlobalNumber globalnum) {
+		this.globalnum = globalnum;
+	}
+	
+	
 }
